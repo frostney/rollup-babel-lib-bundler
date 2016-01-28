@@ -27,23 +27,23 @@ rollupBabelLibBundler({
 ```
 
 #### options.name
-Type `String`
+Type `String`  
 The name of the library. Will be used for the generated filenames.
 
 #### options.moduleName
-Type `String`
+Type `String`  
 This is needed for the UMD build. This is the property the library will bind itself to the global object. If omitted, it will automatically use `options.name` as camel case.
 
 #### options.dest
-Type `String`
+Type `String`  
 The directory where the files will be generated to.
 
 #### options.entry
-Type `String`
+Type `String`  
 The path to the library itself.
 
 #### options.format
-Type: `Array`
+Type: `Array`  
 Can be `umd`, `es6` or `cjs` or a combination of these.
 
 ## License
