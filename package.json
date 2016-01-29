@@ -31,6 +31,7 @@
   "homepage": "https://github.com/frostney/rollup-babel-lib-bundler#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-as-promised": "^5.2.0",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^3.1.0",
     "mocha": "^2.4.5",
