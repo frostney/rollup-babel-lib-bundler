@@ -18,11 +18,21 @@ var files = [];
 
 var packageFile = path.resolve(process.cwd(), './package.json');
 
-var stats = fs.statSync(packageFile);
+var stats = (function statsIIFE() {
+  try {
+    return fs.statSync(packageFile);
+  } catch (e) {
+    return null;
+  }
+})();
 
-if (stats.isFile()) {
+if (stats && stats.isFile()) {
   libPkg = require(packageFile);
   libName = libPkg.name;
+
+  if (libPkg['jsnext:main']) {
+    entry = ['jsnext:main'];
+  }
 }
 
 program.version(pkg.version)
