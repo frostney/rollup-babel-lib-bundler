@@ -8,7 +8,7 @@ As a library author, I always wanted to have a utility where I put in a file and
 
 Originally, this started as a build script in one of open source projects, but then I needed it in other projects as well. That's when it became a NPM module.
 
-I really like Rollup's idea of not scoping each module individually which is closer to my perception of what the library what would look like if I were to write by hand without modules.
+I really like Rollup's idea of not scoping each module individually which is closer to my perception of what the library what would look like if I were to write the library by hand without modules.
 
 ## Installation
 ```
