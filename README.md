@@ -1,6 +1,8 @@
 # rollup-babel-lib-bundler
 Utility to bundle JavaScript libraries with Rollup
 
+[![Dependency Status](https://david-dm.org/frostney/rollup-babel-lib-bundler.svg)](https://david-dm.org/frostney/rollup-babel-lib-bundler) [![devDependency Status](https://david-dm.org/frostney/rollup-babel-lib-bundler/dev-status.svg)](https://david-dm.org/frostney/rollup-babel-lib-bundler#info=devDependencies)
+
 As a library author, I always wanted to have a utility where I put in a file and I get a library for all the formats I want to distribute.
 (Ideally, it should pick up my Babel config and the library name from the `package.json`.)
 
