@@ -13,6 +13,8 @@ var libName = '';
 var moduleName = '';
 var dest = '';
 var format = [];
+var entry = '';
+var files = [];
 
 var packageFile = path.resolve(process.cwd(), './package.json');
 
@@ -36,14 +38,39 @@ moduleName = program.moduleName || moduleName;
 format = program.format || format;
 dest = program.dest || dest;
 
-if (program.args.length > 0) {
-  program.args.forEach(function forEach(arg) {
+files = program.args;
+if (files.length === 0) {
+  files = [entry];
+}
+
+if (files.length > 0) {
+  files.forEach(function forEach(arg) {
     rollupBabelLibBundler({
       name: libName,
       moduleName: moduleName,
       dest: dest,
       entry: arg,
       format: format,
+    }).then(function buildThen(builds) {
+      console.log('All done!');
+
+      builds.forEach(function buildForEach(buildStats) {
+        var moduleFormat = buildStats.format.toUpperCase();
+        var buildName = buildStats.name;
+        var duration = buildStats.endTime - buildStats.startTime;
+
+        // TODO: I really miss template strings here.
+        var o = 'Built ' + moduleFormat + ' module for ' + buildName + '. Took ' + duration + ' ms';
+
+        console.log(o);
+      });
+    }).catch(function buildCatch(err) {
+      console.log('Error while generating a build:');
+      console.error(err);
+
+      process.exit(1);
     });
   });
+} else {
+  console.log('No files specified');
 }
