@@ -7,7 +7,8 @@
     "rollup-babel-lib-bundler": "./bin/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha test/index.js",
+    "coverage": "nyc npm test",
     "lint": "eslint ."
   },
   "repository": {
@@ -29,8 +30,11 @@
   },
   "homepage": "https://github.com/frostney/rollup-babel-lib-bundler#readme",
   "devDependencies": {
+    "chai": "^3.5.0",
     "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^3.1.0"
+    "eslint-config-airbnb": "^3.1.0",
+    "mocha": "^2.4.5",
+    "nyc": "^5.5.0"
   },
   "dependencies": {
     "camel-case": "^1.2.2",
