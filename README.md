@@ -19,6 +19,8 @@ $ npm install rollup-babel-lib-bundler
 
 Rollup requires a rollup-compatible Babel config. Simply change the `es2015` preset to `es2015-rollup` or `es2015-loose` to `es2015-loose-rollup`.
 
+![usage](https://github.com/frostney/rollup-babel-lib-bundler/blob/master/docs/usage.gif)
+
 ### Command-line
 ```
 rollup-babel-lib-bundler ./myFancyLibrary.js
