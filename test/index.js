@@ -14,7 +14,11 @@ describe('rollup-babel-lib-bundler', function() {
   it('returns a promise', function(done) {
     var promise = rollupBabelLibBundler();
 
-    expect(promise).to.be.a('Promise');
+    // On Node 0.10, promise is shimmed
+    if (typeof promise !== 'object') {
+      expect(promise).to.be.a('Promise');
+    }
+
     expect(promise).to.eventually.be.rejected.and.notify(done);
   });
 
