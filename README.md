@@ -27,7 +27,7 @@ rollup-babel-lib-bundler ./myFancyLibrary.js
 ```
 
 ### JavaScript API
-The API is very similar to a Rollup config file. In fact, additional option will be passed into Rollup.
+The API is very similar to a Rollup config file. In fact, additional options will be passed into Rollup.
 
 ```javascript
 var rollupBabelLibBundler = require('rollup-babel-lib-bundler');
@@ -68,7 +68,7 @@ Can be `umd`, `es6` or `cjs` or a combination of these.
 
 #### Return value
 ###### Type: `Promise`
-This returns a promise with an array of objects which can
+This returns a promise with an array of objects which have the following format:
 
 ```javascript
 {
