@@ -32,20 +32,19 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
-    "coveralls": "^2.11.6",
-    "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^3.1.0",
-    "istanbul": "^0.4.2",
+    "coveralls": "^2.11.8",
+    "eslint": "^2.2.0",
+    "eslint-config-airbnb": "^6.0.2",
     "mocha": "^2.4.5",
-    "nyc": "^5.5.0"
+    "nyc": "^5.6.0"
   },
   "dependencies": {
     "camel-case": "^1.2.2",
     "commander": "^2.9.0",
     "object-assign": "^4.0.1",
     "pinkie-promise": "^2.0.0",
-    "rollup": "^0.24.1",
-    "rollup-plugin-babel": "^2.3.8",
+    "rollup": "^0.25.4",
+    "rollup-plugin-babel": "^2.4.0",
     "rollup-plugin-json": "^2.0.0"
   }
 }
