@@ -76,7 +76,14 @@ if (files.length > 0) {
       });
     }).catch(function buildCatch(err) {
       console.log('Error while generating a build:');
-      console.error(err);
+
+      if (err.stack) {
+        console.error(err.stack);
+      } else {
+        if (err.message) {
+          console.error(err.message);
+        }
+      }
 
       process.exit(1);
     });
