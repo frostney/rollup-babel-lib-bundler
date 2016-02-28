@@ -60,7 +60,7 @@ if (files.length > 0) {
       moduleName: moduleName,
       dest: dest,
       entry: arg,
-      format: format,
+      format: (format) ? format.split(',') : format
     }).then(function buildThen(builds) {
       console.log('All done!');
 
