@@ -1,6 +1,6 @@
 {
   "name": "rollup-babel-lib-bundler",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "description": "Utility to bundle JavaScript libraries with Rollup",
   "main": "lib/index.js",
   "bin": {
