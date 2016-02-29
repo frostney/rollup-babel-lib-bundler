@@ -12,7 +12,7 @@ var libPkg = null;
 var libName = '';
 var moduleName = '';
 var dest = '';
-var format = [];
+var format = '';
 var entry = '';
 var files = [];
 
