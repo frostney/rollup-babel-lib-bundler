@@ -43,7 +43,7 @@ program.version(pkg.version)
   .option('-d, --dest <dest>', 'Destination')
   .parse(process.argv);
 
-libName = program.name || libName || 'library';
+libName = program.libName || libName || 'library';
 moduleName = program.moduleName || moduleName;
 format = program.format || format;
 dest = program.dest || dest;
