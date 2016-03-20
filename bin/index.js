@@ -37,7 +37,8 @@ if (stats && stats.isFile()) {
 
 program.version(pkg.version)
   .usage('[options] <file ...>')
-  .option('-n, --name <libName>', 'Library name')
+  .option('-n, --lib-name <libName>',
+    'Library name (defaults to `name` from `package.json` if available)')
   .option('--module-name <moduleName>', 'Module name for UMD build')
   .option('-f, --format <format>', 'Build formats (comma separated; default: es6,umd,cjs)')
   .option('-d, --dest <dest>', 'Destination')
