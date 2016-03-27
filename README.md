@@ -64,7 +64,7 @@ The path to the library itself.
 #### options.format
 ###### Type: `Array`  
 ###### Default `['umd', 'es6', 'cjs']`
-Can be `umd`, `es6` or `cjs` or a combination of these.
+Can be `umd`, `es6`, `cjs`, `iife` or a combination of these.
 
 #### Return value
 ###### Type: `Promise`
