@@ -55,7 +55,7 @@ format = program.format || packageConfig.format || format;
 dest = program.dest || packageConfig.dest || dest;
 babelOptions = packageConfig.babel || babelOptions;
 
-files = program.args || packageConfig.files;
+files = program.args || packageConfig.files || [];
 if (files.length === 0) {
   files = [entry];
 }
