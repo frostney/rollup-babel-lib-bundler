@@ -37,7 +37,7 @@
     "eslint-config-airbnb": "^6.0.2",
     "eslint-plugin-react": "^4.1.0",
     "mocha": "^2.4.5",
-    "nyc": "^5.6.0"
+    "nyc": "^6.1.1"
   },
   "dependencies": {
     "camel-case": "^1.2.2",
