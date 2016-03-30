@@ -15,6 +15,8 @@ var dest = '';
 var format = '';
 var entry = '';
 var files = [];
+var packageConfig = {};
+var babelOptions = null;
 
 var packageFile = path.resolve(process.cwd(), './package.json');
 
@@ -29,6 +31,7 @@ var stats = (function statsIIFE() {
 if (stats && stats.isFile()) {
   libPkg = require(packageFile);
   libName = libPkg.name;
+  packageConfig = libPkg.rollupBabelLibBundler || {};
 
   if (libPkg['jsnext:main']) {
     entry = ['jsnext:main'];
@@ -45,9 +48,10 @@ program.version(pkg.version)
   .parse(process.argv);
 
 libName = program.libName || libName || 'library';
-moduleName = program.moduleName || moduleName;
-format = program.format || format;
-dest = program.dest || dest;
+moduleName = program.moduleName || packageConfig.moduleName || moduleName;
+format = program.format || packageConfig.format || format;
+dest = program.dest || packageConfig.dest || dest;
+babelOptions = packageConfig.babel || babelOptions;
 
 files = program.args;
 if (files.length === 0) {
@@ -56,12 +60,25 @@ if (files.length === 0) {
 
 if (files.length > 0) {
   files.forEach(function forEach(arg) {
+    var bundleFormat = (function (f) {
+      if (!f) {
+        return void 0;
+      }
+
+      if (typeof f === 'string') {
+        return f.split(',');
+      }
+
+      return format;
+    })(format);
+
     rollupBabelLibBundler({
       name: libName,
       moduleName: moduleName,
       dest: dest,
       entry: arg,
-      format: (format) ? format.split(',') : format
+      format: bundleFormat,
+      babel: babelOptions
     }).then(function buildThen(builds) {
       console.log('All done!');
 

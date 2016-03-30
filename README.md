@@ -26,8 +26,26 @@ Rollup requires a rollup-compatible Babel config. Simply change the `es2015` pre
 rollup-babel-lib-bundler ./myFancyLibrary.js
 ```
 
+The command-line app also supports passing in options through the `package.json`. Simply create a property called `rollupBabelLibBundler`. An example configuration would look like this:
+```json
+"rollupBabelLibBundler": {
+  "moduleName": "myFancyLibrary",
+  "dest": "dist",
+  "babel": {
+    "presets": ["es2015-rollup", "stage-1"]
+  }
+}
+```
+
+It also allows passing in Babel options passed in here. This will take precedence over the `.babelrc` file. The options are passed into the `rollup-babel-plugin` where the options are slightly different from the official Babel configuration. See https://github.com/rollup/rollup-plugin-babel#configuring-babel for more details.
+
+```
+Command-line options > Package configuration options
+Package babel configuration > .babelrc
+```
+
 ### JavaScript API
-The API is very similar to a Rollup config file. In fact, additional options will be passed into Rollup.
+The API is very similar to a Rollup config file. In fact, additional options will be passed into Rollup or plugins `rollup-babel-lib-bundler` uses.
 
 ```javascript
 var rollupBabelLibBundler = require('rollup-babel-lib-bundler');
@@ -65,6 +83,10 @@ The path to the library itself.
 ###### Type: `Array`  
 ###### Default `['umd', 'es6', 'cjs']`
 Can be `umd`, `es6`, `cjs`, `iife` or a combination of these.
+
+#### options.babel
+###### Type: `String` or `Object`
+Allow to overwrite the babel configuration. By default its value is inherit and it will take the closest `.babelrc` file.
 
 #### Return value
 ###### Type: `Promise`
