@@ -86,7 +86,7 @@ Can be `umd`, `es6`, `cjs`, `iife` or a combination of these.
 
 #### options.babel
 ###### Type: `String` or `Object`
-Allow to overwrite the babel configuration. By default its value is inherit and it will take the closest `.babelrc` file.
+Allow to overwrite the babel configuration. By default its value is `inherit` and it will take the closest `.babelrc` file.
 
 #### Return value
 ###### Type: `Promise`
