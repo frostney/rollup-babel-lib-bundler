@@ -33,6 +33,8 @@ if (stats && stats.isFile()) {
   libName = libPkg.name;
   packageConfig = libPkg.rollupBabelLibBundler || {};
 
+  // FIXME: That's actually not the way it should be. `jsnext:main` is most likely the output,
+  //    not the input. This needs to be changed requiring a new major version according to SemVer
   if (libPkg['jsnext:main']) {
     entry = ['jsnext:main'];
   }
@@ -53,7 +55,7 @@ format = program.format || packageConfig.format || format;
 dest = program.dest || packageConfig.dest || dest;
 babelOptions = packageConfig.babel || babelOptions;
 
-files = program.args;
+// TODO: Allow files to defined in the package configuration
 if (files.length === 0) {
   files = [entry];
 }
