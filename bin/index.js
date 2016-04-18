@@ -47,7 +47,7 @@ program.version(pkg.version)
     'Library name (defaults to `name` from `package.json` if available)')
   .option('--module-name <moduleName>', 'Module name for UMD build')
   .option('-f, --format <format>', 'Build formats (comma separated; default: es6,umd,cjs)')
-  .option('-p --postfix <postfix>', 'Postfix names (comma separated; default: es2015:.es6,umd:.umd,cjs:,iife:iife)')
+  .option('-p --postfix <postfix>', 'Postfix names (comma separated; default: es2015:.es6,umd:.umd,cjs:,iife:.iife)')
   .option('-d, --dest <dest>', 'Destination')
   .parse(process.argv);
 
