@@ -5,6 +5,8 @@ chai.use(chaiAsPromised);
 
 var expect = chai.expect;
 var rollupBabelLibBundler = require('../lib');
+var del = require('del');
+var fs = require('fs');
 
 describe('rollup-babel-lib-bundler', function() {
   it('is a function', function() {
@@ -28,5 +30,22 @@ describe('rollup-babel-lib-bundler', function() {
     });
 
     expect(promise).to.eventually.be.a('array').and.notify(done);
+  });
+
+  it('adds the proper postfix', function(done) {
+    del.sync('./dist/*');
+
+    var expected = ['mylibrary.common.js', 'mylibrary.es2015.js'];
+    var promise = rollupBabelLibBundler({
+      entry: 'test/sample.js',
+      format: ['cjs', 'es6'],
+      postfix: {
+        cjs: '.common',
+      }
+    }).then(function () {
+      return fs.readdirSync('./dist');
+    });
+
+    expect(promise).to.eventually.be.eql(expected).and.notify(done);
   });
 });

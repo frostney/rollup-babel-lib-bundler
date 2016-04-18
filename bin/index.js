@@ -13,6 +13,7 @@ var libName = '';
 var moduleName = '';
 var dest = '';
 var format = '';
+var postfix = '';
 var entry = '';
 var files = [];
 var packageConfig = {};
@@ -46,12 +47,14 @@ program.version(pkg.version)
     'Library name (defaults to `name` from `package.json` if available)')
   .option('--module-name <moduleName>', 'Module name for UMD build')
   .option('-f, --format <format>', 'Build formats (comma separated; default: es6,umd,cjs)')
+  .option('-p --postfix <postfix>', 'Postfix names (comma separated; default: es2015:.es6,umd:.umd,cjs:,iife:.iife)')
   .option('-d, --dest <dest>', 'Destination')
   .parse(process.argv);
 
 libName = program.libName || libName || 'library';
 moduleName = program.moduleName || packageConfig.moduleName || moduleName;
 format = program.format || packageConfig.format || format;
+postfix = program.postfix || packageConfig.postfix || postfix;
 dest = program.dest || packageConfig.dest || dest;
 babelOptions = packageConfig.babel || babelOptions;
 
@@ -74,12 +77,27 @@ if (files.length > 0) {
       return format;
     })(format);
 
+    var bundlePostfix = (function (p) {
+      if (!p) {
+        return void 0;
+      }
+
+      if (typeof p === 'string') {
+        return p.split(',').reduce(function (prev, cur) {
+          var keyVal = cur.split(':');
+          prev[keyVal[0]] = keyVal[1];
+          return prev;
+        }, {});
+      }
+    }(postfix));
+
     rollupBabelLibBundler({
       name: libName,
       moduleName: moduleName,
       dest: dest,
       entry: arg,
       format: bundleFormat,
+      postfix: bundlePostfix,
       babel: babelOptions
     }).then(function buildThen(builds) {
       console.log('All done!');
