@@ -56,6 +56,7 @@ rollupBabelLibBundler({
   dest: 'dist',
   entry: './myFancyLibrary.js',
   format: ['cjs', 'umd', 'es6'],
+  postfix: { cjs: '.common' },
 });
 ```
 
@@ -83,6 +84,11 @@ The path to the library itself.
 ###### Type: `Array`  
 ###### Default `['umd', 'es6', 'cjs']`
 Can be `umd`, `es6`, `cjs`, `iife` or a combination of these.
+
+#### options.postfix
+###### Type: `Object`  
+###### Default `{ cjs: '', es6: '.es2015', umd: '.umd', iife: '.iife' }`
+Overrides the default postfix string. Any formats not specified will fallback to it's default.
 
 #### options.babel
 ###### Type: `String` or `Object`
