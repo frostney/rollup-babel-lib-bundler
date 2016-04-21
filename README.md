@@ -58,6 +58,7 @@ rollupBabelLibBundler({
   dest: 'dist',
   entry: './myFancyLibrary.js',
   format: ['cjs', 'umd', 'es6'],
+  postfix: { cjs: '.common' },
 });
 ```
 
