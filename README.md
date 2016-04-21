@@ -26,6 +26,8 @@ Rollup requires a rollup-compatible Babel config. Simply change the `es2015` pre
 rollup-babel-lib-bundler ./myFancyLibrary.js
 ```
 
+Call `rollup-babel-lib-bundler` without any arguments to see all options.
+
 The command-line app also supports passing in options through the `package.json`. Simply create a property called `rollupBabelLibBundler`. An example configuration would look like this:
 ```json
 "rollupBabelLibBundler": {
@@ -85,10 +87,10 @@ The path to the library itself.
 ###### Default `['umd', 'es6', 'cjs']`
 Can be `umd`, `es6`, `cjs`, `iife` or a combination of these.
 
-#### options.postfix
-###### Type: `Object`  
+##### options.postfix
+###### Type: `Object`
 ###### Default `{ cjs: '', es6: '.es2015', umd: '.umd', iife: '.iife' }`
-Overrides the default postfix string. Any formats not specified will fallback to it's default.
+Allows to define custom postfixes for each module type. `.js` will automatically be prepended.
 
 #### options.babel
 ###### Type: `String` or `Object`
