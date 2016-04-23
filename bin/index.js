@@ -89,6 +89,8 @@ if (files.length > 0) {
           return prev;
         }, {});
       }
+      
+      return p;
     }(postfix));
 
     rollupBabelLibBundler({
