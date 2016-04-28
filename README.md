@@ -1,5 +1,5 @@
 # rollup-babel-lib-bundler
-Utility to bundle JavaScript libraries with Rollup
+Utility to bundle JavaScript libraries with Rollup. An opiniated configuration preset for Rollup to use for bundling libraries
 
 [![Build Status](https://travis-ci.org/frostney/rollup-babel-lib-bundler.svg?branch=master)](https://travis-ci.org/frostney/rollup-babel-lib-bundler) [![Dependency Status](https://david-dm.org/frostney/rollup-babel-lib-bundler.svg)](https://david-dm.org/frostney/rollup-babel-lib-bundler) [![devDependency Status](https://david-dm.org/frostney/rollup-babel-lib-bundler/dev-status.svg)](https://david-dm.org/frostney/rollup-babel-lib-bundler#info=devDependencies) [![Coverage Status](https://coveralls.io/repos/github/frostney/rollup-babel-lib-bundler/badge.svg?branch=master)](https://coveralls.io/github/frostney/rollup-babel-lib-bundler?branch=master)
 
