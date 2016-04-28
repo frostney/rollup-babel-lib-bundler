@@ -46,6 +46,8 @@ Command-line options > Package configuration options
 Package babel configuration > .babelrc
 ```
 
+If using the command-line utility, no imports will be included by default. If any package name is included in `bundleDependencies` it will be part of the resulting bundle. For the equivalent in the JavaScript API, see `options.externals`.
+
 ### JavaScript API
 The API is very similar to a Rollup config file. In fact, additional options will be passed into Rollup or plugins `rollup-babel-lib-bundler` uses.
 
@@ -95,6 +97,11 @@ Allows to define custom postfixes for each module type. `.js` will automatically
 #### options.babel
 ###### Type: `String` or `Object`
 Allow to overwrite the babel configuration. By default its value is `inherit` and it will take the closest `.babelrc` file.
+
+#### options.externals
+###### Type `Array<String>`
+###### Default `[]`
+Any dependencies that are being used will be inserted into the bundle by default. If any packages are defined in this array, they won't be included in the bundle.
 
 #### Return value
 ###### Type: `Promise`
