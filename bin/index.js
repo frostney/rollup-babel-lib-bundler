@@ -18,6 +18,9 @@ var entry = '';
 var files = [];
 var packageConfig = {};
 var babelOptions = null;
+var dependencies = [];
+var bundleDependencies = [];
+var externals = [];
 
 var packageFile = path.resolve(process.cwd(), './package.json');
 
@@ -34,6 +37,13 @@ if (stats && stats.isFile()) {
   libName = libPkg.name;
   packageConfig = libPkg.rollupBabelLibBundler || {};
 
+  dependencies = libPkg.dependencies || {};
+  bundleDependencies = libPkg.bundleDependencies || [];
+
+  externals = Object.keys(dependencies).filter(function filter(item) {
+    return bundleDependencies.indexOf(item) >= 0;
+  });
+
   // FIXME: That's actually not the way it should be. `jsnext:main` is most likely the output,
   //    not the input. This needs to be changed requiring a new major version according to SemVer
   if (libPkg['jsnext:main']) {
@@ -47,7 +57,8 @@ program.version(pkg.version)
     'Library name (defaults to `name` from `package.json` if available)')
   .option('--module-name <moduleName>', 'Module name for UMD build')
   .option('-f, --format <format>', 'Build formats (comma separated; default: es6,umd,cjs)')
-  .option('-p --postfix <postfix>', 'Postfix names (comma separated; default: es2015:.es6,umd:.umd,cjs:,iife:.iife)')
+  .option('-p --postfix <postfix>',
+    'Postfix names (comma separated; default: es2015:.es6,umd:.umd,cjs:,iife:.iife)')
   .option('-d, --dest <dest>', 'Destination')
   .parse(process.argv);
 
@@ -89,7 +100,7 @@ if (files.length > 0) {
           return prev;
         }, {});
       }
-      
+
       return p;
     }(postfix));
 
@@ -100,7 +111,8 @@ if (files.length > 0) {
       entry: arg,
       format: bundleFormat,
       postfix: bundlePostfix,
-      babel: babelOptions
+      babel: babelOptions,
+      externals: externals
     }).then(function buildThen(builds) {
       console.log('All done!');
 
