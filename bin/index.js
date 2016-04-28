@@ -41,14 +41,8 @@ if (stats && stats.isFile()) {
   bundleDependencies = libPkg.bundleDependencies || [];
 
   externals = Object.keys(dependencies).filter(function filter(item) {
-    return bundleDependencies.indexOf(item) >= 0;
+    return bundleDependencies.indexOf(item) < 0;
   });
-
-  // FIXME: That's actually not the way it should be. `jsnext:main` is most likely the output,
-  //    not the input. This needs to be changed requiring a new major version according to SemVer
-  if (libPkg['jsnext:main']) {
-    entry = ['jsnext:main'];
-  }
 }
 
 program.version(pkg.version)
