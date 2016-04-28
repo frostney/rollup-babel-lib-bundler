@@ -1,6 +1,6 @@
 {
   "name": "rollup-babel-lib-bundler",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Utility to bundle JavaScript libraries with Rollup",
   "main": "lib/index.js",
   "bin": {
@@ -33,18 +33,18 @@
     "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
     "coveralls": "^2.11.8",
-    "eslint": "^2.2.0",
-    "eslint-config-airbnb": "^6.0.2",
-    "eslint-plugin-react": "^4.1.0",
+    "eslint": "^2.8.0",
+    "eslint-config-airbnb-base": "^1.0.4",
+    "eslint-plugin-import": "^1.6.1",
     "mocha": "^2.4.5",
-    "nyc": "^6.1.1"
+    "nyc": "^6.4.0"
   },
   "dependencies": {
     "camel-case": "^1.2.2",
     "commander": "^2.9.0",
     "object-assign": "^4.0.1",
-    "pinkie-promise": "^2.0.0",
-    "rollup": "^0.25.4",
+    "pinkie-promise": "^2.0.1",
+    "rollup": "^0.26.1",
     "rollup-plugin-babel": "^2.4.0",
     "rollup-plugin-commonjs": "^2.2.1",
     "rollup-plugin-json": "^2.0.0",
